@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>JS to validate Student marks and HTML Div to create tables</title>
+        <!-- HTML5 shim for IE8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+      <script src=“https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js”></script>
+    <![endif]-->
+<!-- styling the table -->
+<style type="text/css">
+    .Table
+    {
+        display: table;
+    }
+    .Title
+    {
+        display: table-caption;
+        text-align: center;
+        font-weight: bold;
+        font-size: larger;
+    }
+    .Heading
+    {
+        display: table-row;
+        font-weight: bold;
+        text-align: center;
+    }
+    .Row
+    {
+        display: table-row;
+    }
+    .Cell
+    {
+        display: table-cell;
+        border: solid;
+        border-width: thin;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+</style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<h1> Assignment 6.3 </h1>
+</header>
+<!-- main section -->
+<main id="mainSection">
+<section id="subSection">
+<!-- displaying the table using Div -->
+<div class="Table">
+    <div class="Title">
+        <p>Student Marks Sheet</p>
+    </div>
+    <div class="Heading">
+        <div class="Cell">
+            <p>Subject</p>
+        </div>
+        <div class="Cell">
+            <p>Marks</p>
+        </div>
+        <div class="Cell">
+            <p>Grade</p>
+        </div>
+    </div>
+
+    <div class="Row">
+        <div class="Cell">
+            <p>Maths</p>
+        </div>
+        <div class="Cell">
+            <p><input type=number  name=Marks id="MathMarks" min="0"  max="100" value="35"></p>
+        </div>
+        <div class="Cell">
+            <p id="MathGrade"></p>
+        </div>
+    </div>
+
+    <div class="Row">
+        <div class="Cell">
+            <p>Physics</p>
+        </div>
+        <div class="Cell">
+            <p><input type=number  name=Marks id="PhysicsMarks" min="0"  max="100" value="35"></p>
+        </div>
+        <div class="Cell">
+            <p id="PhysicsGrade"></p>
+        </div>
+    </div>
+
+<div class="Row">
+        <div class="Cell">
+            <p>Chemistry</p>
+        </div>
+        <div class="Cell">
+            <p><input type=number  name=Marks id="ChemMarks" min="0"  max="100" value="35"></p>
+        </div>
+        <div class="Cell">
+            <p id="ChemGrade"></p>
+        </div>
+    </div>
+
+<div class="Row">
+        <div class="Cell">
+            <p>Summary</p>
+        </div>
+        <div class="Cell">
+            <p id="totalMarks"></p>
+        </div>
+        <div class="Cell">
+            <p id="AvgMarks"></p>
+        </div>
+</div>
+
+<div class="Row">
+<button  onclick="myfunc()">click here to validate</button>
+</div>
+
+</div>
+</section>
+</main>
+<script type="text/javascript">
+function myfunc(){
+//get the input values from the textbox
+var mathMarks=Number(document.getElementById("MathMarks").value);
+var phyMarks=Number(document.getElementById("PhysicsMarks").value);
+var chemMarks=Number(document.getElementById("ChemMarks").value);
+//validations
+if (mathMarks >= 35 )
+{
+document.getElementById("MathGrade").innerHTML = "Pass";
+}
+else
+{
+document.getElementById("MathGrade").innerHTML = "Fail";
+}
+if (phyMarks >= 35 )
+{
+document.getElementById("PhysicsGrade").innerHTML = "Pass";
+}
+else
+{
+document.getElementById("PhysicsGrade").innerHTML = "Fail";
+}
+if (chemMarks >= 35 )
+{
+document.getElementById("ChemGrade").innerHTML = "Pass";
+}
+else
+{
+document.getElementById("ChemGrade").innerHTML = "Fail";
+}
+//calculations
+var totMarks=mathMarks+phyMarks+chemMarks;
+var avgMarks=(totMarks)/3;
+
+//display
+document.getElementById("totalMarks").innerHTML=" Total "+totMarks;
+document.getElementById("AvgMarks").innerHTML="Average "+Math.round(avgMarks);
+}
+</script>
+</body>
+</html>
